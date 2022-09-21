@@ -5,7 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var coursRouter = require('./routes/cours');
+var etudiantsRouter = require('./routes/etudiant');
+
+
 // var db = require('./config/db')
 var config = require('./config/database');
 
@@ -43,7 +46,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/cours', coursRouter);
+app.use('/etudiants', etudiantsRouter);
+
 // app.get('/first_template', function(req, res){
 //   res.render('index');
 // });
